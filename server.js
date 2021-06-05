@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const Sequelize = require('sequelize');
 const { Contact } = require('./models');
@@ -16,6 +18,6 @@ app.get('/contacts', async (req, res) => {
   res.json(contacts);
 });
 
-app.listen('8080', () => {
-  console.log('The server is listening on port 8080');
+app.listen(process.env.PORT, () => {
+  console.log(`The server is listening on port ${PORT}`);
 });
