@@ -95,6 +95,7 @@ const landing = `
       <div class="block">
         <h3>Note</h3>
         <p><code>DELETE</code> and <code>PUT</code> are not allowed for records whose <code>id</code> is less than <code>4</code></p>
+        <p>The query param <code>auth</code> must have the appropriate value in order to execute any requests to <code>/contacts</code></p>
       </div>
     </main>
   </body>
