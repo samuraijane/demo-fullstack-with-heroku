@@ -34,6 +34,20 @@ router.get('/', async (req, res) => {
   res.json(contacts);
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const contact = await Contact.findOne(
+    {
+      where: {
+        id
+      }
+    }
+  ).catch(err => res.json({ERR: err}));
+  res.json(contact);
+});
+
+
+
 
 // -----------------------------------------------------------------------------
 //                                     POST
