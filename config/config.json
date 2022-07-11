@@ -14,10 +14,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "d7sa8kies8bqma",
-    "host": "sj-demo-fullstack-with-heroku.herokuapp.com",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+        "ssl": true
+    }
   }
 }
