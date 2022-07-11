@@ -14,7 +14,7 @@ app.get('/heartbeat', (req, res) => {
 });
 
 app.get('/contacts', async (req, res) => {
-  const contacts = await Contact.findAll();
+  const contacts = await Contact.findAll().catch(err => console.log('ERR', err));
   res.json(contacts);
 });
 
