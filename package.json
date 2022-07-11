@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "db:create": "npx sequelize-cli db:create",
+    "db:destroy": "npx sequelize-cli db:drop",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:reset": "npm run db:destroy; npm run db:setup",
+    "db:setup": "npm run db:create && npm run db:migrate && npm run db:seed",
+    "db:seed": "npx sequelize-cli db:seed:all",
     "dev": "nodemon server.js",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
