@@ -16,7 +16,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "address_book_prod",
+    "database": "d7sa8kies8bqma",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
