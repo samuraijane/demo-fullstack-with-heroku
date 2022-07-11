@@ -17,7 +17,7 @@
     "username": "root",
     "password": null,
     "database": "d7sa8kies8bqma",
-    "host": "127.0.0.1",
+    "host": "sj-demo-fullstack-with-heroku.herokuapp.com",
     "dialect": "postgres"
   }
 }
