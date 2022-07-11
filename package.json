@@ -7,6 +7,7 @@
     "db:create": "npx sequelize-cli db:create",
     "db:destroy": "npx sequelize-cli db:drop",
     "db:migrate": "npx sequelize-cli db:migrate",
+    "db:prod:import": "heroku pg:reset --confirm sj-demo-fullstack-with-heroku && heroku pg:push address_book_dev DATABASE_URL -a sj-demo-fullstack-with-heroku",
     "db:reset": "npm run db:destroy; npm run db:setup",
     "db:setup": "npm run db:create && npm run db:migrate && npm run db:seed",
     "db:seed": "npx sequelize-cli db:seed:all",
