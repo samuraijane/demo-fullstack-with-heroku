@@ -8,16 +8,19 @@ const { Contact } = require('../models');
 // -----------------------------------------------------------------------------
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  if (id == 1) res.json({ message: 'Andrea cannot be deleted. She is your best friend.', success: false})
-  await Contact.destroy({
-      where: {
-          id
-      }
-  })
-  .catch(err => res.json({ ERR: err }));
-  res.json({
-    success: true
-  });
+  if (id == 1) {
+    res.json({ message: 'Andrea cannot be deleted. She is your best friend.', success: false});
+  } else {
+    await Contact.destroy({
+        where: {
+            id
+        }
+    })
+    .catch(err => res.json({ ERR: err }));
+    res.json({
+      success: true
+    });
+  }
 });
 
 
@@ -75,15 +78,19 @@ router.post("/add", async (req, res) => {
 // -----------------------------------------------------------------------------
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  await Contact.update(req.body, {
+  if (id == 1) {
+    res.json({ message: 'Andrea cannot be changed. She is perfect just the way she is.', success: false});
+  } else {
+    await Contact.update(req.body, {
       where: {
           id
       }
-  })
-  .catch(err => res.json({ERR: err}));
-  res.json({
-    success: true
-  });
+    })
+    .catch(err => res.json({ERR: err}));
+    res.json({
+      success: true
+    });
+  }
 });
 
 
