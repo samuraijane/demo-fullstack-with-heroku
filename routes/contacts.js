@@ -8,8 +8,8 @@ const { Contact } = require('../models');
 // -----------------------------------------------------------------------------
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  if (id == 1) {
-    res.json({ message: 'Andrea cannot be deleted. She is your best friend.', success: false});
+  if (id < 4) {
+    res.json({ message: 'This contact is one of your best friends and cannot be deleted.', success: false});
   } else {
     await Contact.destroy({
         where: {
@@ -27,6 +27,7 @@ router.delete('/:id', async (req, res) => {
 // -----------------------------------------------------------------------------
 //                                     GET
 // -----------------------------------------------------------------------------
+// TODO improve error handling when no records are found
 router.get('/', async (req, res) => {
   const contacts = await Contact.findAll().catch(err => res.json({ERR: err}));
   res.json(contacts);
@@ -78,8 +79,8 @@ router.post("/add", async (req, res) => {
 // -----------------------------------------------------------------------------
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  if (id == 1) {
-    res.json({ message: 'Andrea cannot be changed. She is perfect just the way she is.', success: false});
+  if (id < 4) {
+    res.json({ message: 'This contact is perfect just the way he/she is and cannot be changed.', success: false});
   } else {
     await Contact.update(req.body, {
       where: {
