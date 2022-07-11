@@ -2,7 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const Sequelize = require('sequelize');
+
 const { contacts } = require('./routes');
+const ensureAuth = require('./middleware/ensureAuth');
+const { landing } = require('./views');
 
 const app = express();
 app.use(express.json());
@@ -13,7 +16,11 @@ app.get('/heartbeat', (req, res) => {
   })
 });
 
-app.use('/contacts', contacts);
+app.get('/', (req, res) => {
+  res.send(landing);
+});
+
+app.use('/contacts', ensureAuth, contacts);
 
 app.listen(process.env.PORT, () => {
   console.log(`The server is listening on port ${process.env.PORT}`);

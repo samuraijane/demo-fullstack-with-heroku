@@ -8,19 +8,20 @@ const { Contact } = require('../models');
 // -----------------------------------------------------------------------------
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
+  
   if (id < 4) {
     res.json({ message: 'This contact is one of your best friends and cannot be deleted.', success: false});
-  } else {
-    await Contact.destroy({
-        where: {
-            id
-        }
-    })
-    .catch(err => res.json({ ERR: err }));
-    res.json({
-      success: true
-    });
+    return;
   }
+  await Contact.destroy({
+    where: {
+      id
+    }
+  })
+  .catch(err => res.json({ ERR: err }));
+  res.json({
+    success: true
+  });
 });
 
 
