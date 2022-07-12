@@ -56,7 +56,7 @@ const landing = `
         <li>
           <h2>DELETE</h2>
           <p class="brief">Delete one record</p>
-          <code>/contacts/delete/:id</code>
+          <code>/contacts/:id</code>
         </li>
         <li>
           <h2>GET</h2>
@@ -69,12 +69,12 @@ const landing = `
           <h2>POST</h2>
           <p class="brief">Create one record</p>
           <p><code>firstName</code>, <code>lastName</code>, and <code>mobilephone</code> are required when creating a new record.</p>
-          <code>/contacts</code>
+          <code>/contacts/add</code>
         </li>
         <li>
           <h2>PUT</h2>
           <p class="brief">Update one record</p>
-          <code>/contacts/add/:id</code>
+          <code>/contacts/:id</code>
         </li>
       </ul>
       <div class="block">
